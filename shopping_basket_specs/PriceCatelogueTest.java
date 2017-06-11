@@ -14,12 +14,17 @@ public class PriceCatelogueTest {
 
   @Test
   public void testPricerHasOneItem(){
-    assertEquals(1, pricer.size());
+    assertEquals(10, pricer.size());
   }
 
   @Test
   public void testPriceReturned(){
-    assertEquals(299, pricer.price("carton001"));  
+    assertEquals(100, pricer.price("product000"));  
+  }
+
+  @Test
+  public void testLastPriceReturned(){
+    assertEquals(399, pricer.price("product009"));  
   }
 
 
