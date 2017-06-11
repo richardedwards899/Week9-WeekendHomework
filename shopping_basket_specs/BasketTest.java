@@ -15,21 +15,29 @@ public class BasketTest {
     catelogue = new PriceCatelogue();
     basket = new Basket(catelogue);
     item = new Item("product000", 100);
-    item2 = new Item("product000", 100);
+    // item2 = new Item("product000", 100);
   }
 
   @Test
   public void testCanAddSingleItemToBasket(){
     basket.add(item);
-    assertEquals(1, basket.size());
+    assertEquals(1, basket.products());
   }
 
   @Test
   public void testCanTwoMatchingItemsToBasket(){
     basket.add(item);
-    basket.add(item2);
-    assertEquals(1, basket.size());
+    basket.add(item);
+    assertEquals(1, basket.products());
     assertEquals(2, basket.quantity("product000"));
+  }
+
+  @Test
+  public void testCanRemoveSingleItemFromBasket(){
+    basket.add(item);
+    basket.remove(item);
+    assertEquals(1, basket.products());
+    assertEquals(0, basket.quantity("product000"));
   }
 
 }

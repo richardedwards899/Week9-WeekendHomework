@@ -10,7 +10,7 @@ public class Basket {
     itemQuantities = new HashMap<>();
   }
 
-  public int size(){
+  public int products(){
     return itemQuantities.size();
   }
 
@@ -26,6 +26,14 @@ public class Basket {
     }
     else {
       itemQuantities.put(productCode, quantity(productCode)+1);
+    }
+  }
+
+  public void remove(Buyable buyable){
+    String productCode = buyable.id();
+
+    if (itemQuantities.containsKey(productCode)){
+      itemQuantities.put(productCode, quantity(productCode)-1);
     }
   }
 
