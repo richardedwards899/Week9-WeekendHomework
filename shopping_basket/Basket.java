@@ -1,13 +1,17 @@
 package shopping_basket;
 
 import java.util.HashMap;
+import java.util.Set;
+import java.util.Iterator;
 
 public class Basket {
 
   private HashMap<String, Integer> itemQuantities;
+  private PriceCatelogue prices;
 
   public Basket(PriceCatelogue catelogue){
     itemQuantities = new HashMap<>();
+    prices = catelogue;
   }
 
   public int products(){
@@ -51,7 +55,18 @@ public class Basket {
   }
 
   public int value(){
-    return 100;
+    //for each product, get its quantity and times by price!
+    int total = 0;
+    Set keys = itemQuantities.keySet();
+    Iterator iterator = keys.iterator();
+
+    while (iterator.hasNext()){
+      String key = (String) iterator.next();
+      int quantity = itemQuantities.get(key).intValue();
+      int price = prices.price(key);
+      total += quantity * price;
+    }
+    return total;
   }
 
 }

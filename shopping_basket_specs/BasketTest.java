@@ -15,6 +15,7 @@ public class BasketTest {
     catelogue = new PriceCatelogue();
     basket = new Basket(catelogue);
     item = new Item("product000", 100);
+    item2 = new Item("product001", 1075);
   }
 
   @Test
@@ -59,6 +60,13 @@ public class BasketTest {
   public void canCalculateValueOfBasket__OneItem(){
     basket.add(item);
     assertEquals(100, basket.value());
+  }
+
+  @Test
+  public void canCalculateValueOfBasket__TwoItems(){
+    basket.add(item);
+    basket.add(item);
+    assertEquals(200, basket.value());
   }
 
 }
