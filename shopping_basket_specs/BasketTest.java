@@ -66,7 +66,7 @@ public class BasketTest {
   public void canCalculateValueOfBasket__TwoItems(){
     basket.add(item);
     basket.add(item);
-    assertEquals(200, basket.value());
+    assertEquals(100, basket.value());
   }
 
   @Test
@@ -83,6 +83,14 @@ public class BasketTest {
     basket.add(item);
     basket.add(item2);
 
-    assertEquals(2350, basket.value());
+    assertEquals(1175, basket.value());
+  }
+
+  @Test
+  public void canApplyBOGOFpricing(){
+    basket.add(item);
+    basket.add(item);
+    
+    assertEquals(100, basket.value());
   }
 }

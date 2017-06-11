@@ -55,14 +55,22 @@ public class Basket {
   }
 
   public int value(){
-    //for each product, get its quantity and times by price!
+    int total = applyBOGOFpricing();
+    return total;
+  }
+
+  private int bogof(int quantity){
+    return (quantity / 2) + (quantity % 2);
+  }
+
+  private int applyBOGOFpricing(){
     int total = 0;
     Set keys = itemQuantities.keySet();
     Iterator iterator = keys.iterator();
 
     while (iterator.hasNext()){
       String key = (String) iterator.next();
-      int quantity = itemQuantities.get(key).intValue();
+      int quantity = bogof(itemQuantities.get(key).intValue());
       int price = prices.price(key);
       total += quantity * price;
     }
