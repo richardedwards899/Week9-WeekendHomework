@@ -13,6 +13,7 @@ public class PriceCatelogueTest {
   }
 
   @Test
-  public void testPricerHasTenItems(){
-    assertEquals(10, pricer.size());
+  public void testPricerHasOneItem(){
+    assertEquals(1, pricer.size());
   }
+}
