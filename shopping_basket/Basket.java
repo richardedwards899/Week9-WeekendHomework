@@ -8,10 +8,14 @@ public class Basket {
 
   private HashMap<String, Integer> itemQuantities;
   private PriceCatelogue prices;
+  private int discountThreshold;
+  private double discount;
 
   public Basket(PriceCatelogue catelogue){
     itemQuantities = new HashMap<>();
     prices = catelogue;
+    discountThreshold = 2000; //£20
+    discount = 0.10;
   }
 
   public int products(){
@@ -56,7 +60,15 @@ public class Basket {
 
   public int value(){
     int total = applyBOGOFpricing();
+    total = applyDiscount(total);
     return total;
+  }
+
+  private int applyDiscount(int amount){
+    if (amount > discountThreshold){
+      return (int) (amount * (1 - discount));
+    }
+    else return amount;
   }
 
   private int bogof(int quantity){

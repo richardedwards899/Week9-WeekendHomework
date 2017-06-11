@@ -93,4 +93,14 @@ public class BasketTest {
     
     assertEquals(100, basket.value());
   }
+
+  @Test
+  public void canApplyDiscountOverThreshold(){
+    basket.add(item2);
+    basket.add(item2);
+    basket.add(item2);
+    basket.add(item2);
+    
+    assertEquals(1935, basket.value());
+  }
 }
