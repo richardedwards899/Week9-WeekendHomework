@@ -14,16 +14,19 @@ public class Basket {
     return itemQuantities.size();
   }
 
+  public int quantity(String productCode){
+    return itemQuantities.get(productCode);
+  }
+
   public void add(Buyable buyable){
     String productCode = buyable.id();
 
-    itemQuantities.put(productCode, 1);
-    // if (!itemQuantities.containsKey(productCode)){
-
-    // }
-    // else {
-
-    // }
+    if (!itemQuantities.containsKey(productCode)){
+      itemQuantities.put(productCode, 1);
+    }
+    else {
+      itemQuantities.put(productCode, quantity(productCode)+1);
+    }
   }
 
 }

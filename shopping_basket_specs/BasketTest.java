@@ -8,18 +8,28 @@ public class BasketTest {
   private Basket basket;
   private PriceCatelogue catelogue;
   private Item item;
+  private Item item2;
 
   @Before
   public void before(){
     catelogue = new PriceCatelogue();
     basket = new Basket(catelogue);
     item = new Item("product000", 100);
+    item2 = new Item("product000", 100);
   }
 
   @Test
   public void testCanAddSingleItemToBasket(){
     basket.add(item);
     assertEquals(1, basket.size());
+  }
+
+  @Test
+  public void testCanTwoMatchingItemsToBasket(){
+    basket.add(item);
+    basket.add(item2);
+    assertEquals(1, basket.size());
+    assertEquals(2, basket.quantity("product000"));
   }
 
 }
