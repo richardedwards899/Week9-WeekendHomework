@@ -17,4 +17,9 @@ public class ItemTest {
     assertEquals("product000", item.id());
   }
 
+  @Test
+  public void testItemHasPrice(){
+    assertEquals(100, item.price());
+  }
+
 }
