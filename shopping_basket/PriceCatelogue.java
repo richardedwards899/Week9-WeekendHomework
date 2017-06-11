@@ -4,15 +4,19 @@ import java.util.HashMap;
 
 public class PriceCatelogue {
 
-  private HashMap prices;
+  private HashMap<String,Integer> prices;
 
   public PriceCatelogue(){
-    prices = new HashMap();
+    prices = new HashMap<>();
     setupPrices();
   }
 
   public int size(){
     return prices.size();
+  }
+
+  public int price(String itemCode){
+    return prices.get(itemCode).intValue();
   }
 
   private void setupPrices(){
