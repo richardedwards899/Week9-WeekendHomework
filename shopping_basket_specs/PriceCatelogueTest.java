@@ -27,9 +27,4 @@ public class PriceCatelogueTest {
     assertEquals(399, pricer.price("product009"));  
   }
 
-
-
-
-
-
 }
