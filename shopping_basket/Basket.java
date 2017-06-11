@@ -15,7 +15,11 @@ public class Basket {
   }
 
   public int quantity(String productCode){
-    return itemQuantities.get(productCode);
+
+    if (itemQuantities.containsKey(productCode)){
+      return itemQuantities.get(productCode);
+    }
+    else return 0; 
   }
 
   public void add(Buyable buyable){
@@ -35,6 +39,9 @@ public class Basket {
     if (itemQuantities.containsKey(productCode)){
       if (quantity(productCode) > 0){
         itemQuantities.put(productCode, quantity(productCode)-1);
+      }
+      if (quantity(productCode) == 0){
+        itemQuantities.remove(productCode);
       }
     }
   }

@@ -35,7 +35,7 @@ public class BasketTest {
   public void testCanRemoveSingleItemFromBasket(){
     basket.add(item);
     basket.remove(item);
-    assertEquals(1, basket.products());
+    assertEquals(0, basket.products());
     assertEquals(0, basket.quantity("product000"));
   }
 
@@ -44,8 +44,15 @@ public class BasketTest {
     basket.add(item);
     basket.remove(item);
     basket.remove(item);
-    assertEquals(1, basket.products());
+    assertEquals(0, basket.products());
     assertEquals(0, basket.quantity("product000"));
   }
+
+  // @Test
+  // public void canEmptyBasket(){
+  //   basket.add(item);
+  //   basket.empty();
+  //   assertEquals(0, basket.products)
+  // }
 
 }
