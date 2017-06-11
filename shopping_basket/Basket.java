@@ -33,7 +33,9 @@ public class Basket {
     String productCode = buyable.id();
 
     if (itemQuantities.containsKey(productCode)){
-      itemQuantities.put(productCode, quantity(productCode)-1);
+      if (quantity(productCode) > 0){
+        itemQuantities.put(productCode, quantity(productCode)-1);
+      }
     }
   }
 

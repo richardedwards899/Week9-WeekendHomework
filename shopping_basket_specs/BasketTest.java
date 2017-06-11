@@ -15,7 +15,6 @@ public class BasketTest {
     catelogue = new PriceCatelogue();
     basket = new Basket(catelogue);
     item = new Item("product000", 100);
-    // item2 = new Item("product000", 100);
   }
 
   @Test
@@ -35,6 +34,15 @@ public class BasketTest {
   @Test
   public void testCanRemoveSingleItemFromBasket(){
     basket.add(item);
+    basket.remove(item);
+    assertEquals(1, basket.products());
+    assertEquals(0, basket.quantity("product000"));
+  }
+
+  @Test
+  public void testCantHaveNegativeCount(){
+    basket.add(item);
+    basket.remove(item);
     basket.remove(item);
     assertEquals(1, basket.products());
     assertEquals(0, basket.quantity("product000"));
