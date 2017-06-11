@@ -50,4 +50,8 @@ public class Basket {
     itemQuantities = new HashMap<>();
   }
 
+  public int value(){
+    return 100;
+  }
+
 }

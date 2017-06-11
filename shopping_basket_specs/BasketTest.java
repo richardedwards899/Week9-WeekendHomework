@@ -55,4 +55,10 @@ public class BasketTest {
     assertEquals(0, basket.products());
   }
 
+  @Test
+  public void canCalculateValueOfBasket__OneItem(){
+    basket.add(item);
+    assertEquals(100, basket.value());
+  }
+
 }
