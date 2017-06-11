@@ -69,4 +69,20 @@ public class BasketTest {
     assertEquals(200, basket.value());
   }
 
+  @Test
+  public void canFindValueOfBasket__TwoDifferentItems(){
+    basket.add(item);
+    basket.add(item2);
+    assertEquals(1175, basket.value());
+  }
+
+  @Test
+  public void canFindValueOfBasket__MultipleDifferentItems(){
+    basket.add(item);
+    basket.add(item2);
+    basket.add(item);
+    basket.add(item2);
+
+    assertEquals(2350, basket.value());
+  }
 }
