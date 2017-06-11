@@ -46,4 +46,8 @@ public class Basket {
     }
   }
 
+  public void empty(){
+    itemQuantities = new HashMap<>();
+  }
+
 }

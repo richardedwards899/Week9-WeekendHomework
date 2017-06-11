@@ -48,11 +48,11 @@ public class BasketTest {
     assertEquals(0, basket.quantity("product000"));
   }
 
-  // @Test
-  // public void canEmptyBasket(){
-  //   basket.add(item);
-  //   basket.empty();
-  //   assertEquals(0, basket.products)
-  // }
+  @Test
+  public void canEmptyBasket(){
+    basket.add(item);
+    basket.empty();
+    assertEquals(0, basket.products());
+  }
 
 }
