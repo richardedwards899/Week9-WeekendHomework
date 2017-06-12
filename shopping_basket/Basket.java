@@ -10,12 +10,20 @@ public class Basket {
   private PriceCatelogue prices;
   private int discountThreshold;
   private double discount;
+  private boolean loyaltyCardHolder;
+  private double loyaltyDiscount;
 
-  public Basket(PriceCatelogue catelogue){
+  public Basket(PriceCatelogue catelogue, boolean loyal){
     itemQuantities = new HashMap<>();
     prices = catelogue;
+    loyaltyCardHolder = loyal;
+    setConstants();
+  }
+
+  private void setConstants(){
     discountThreshold = 2000; //£20
     discount = 0.10;
+    loyaltyDiscount = 0.02;
   }
 
   public int products(){
@@ -61,7 +69,15 @@ public class Basket {
   public int value(){
     int total = applyBOGOFpricing();
     total = applyDiscount(total);
+    total = applyLoyaltyDiscount(total);
     return total;
+  }
+
+  private int applyLoyaltyDiscount(int amount){
+    if (loyaltyCardHolder){
+      return (int) (amount * (1 - loyaltyDiscount));
+    }
+    else return amount;
   }
 
   private int applyDiscount(int amount){

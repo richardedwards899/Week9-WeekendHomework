@@ -13,7 +13,7 @@ public class BasketTest {
   @Before
   public void before(){
     catelogue = new PriceCatelogue();
-    basket = new Basket(catelogue);
+    basket = new Basket(catelogue, true);
     item = new Item("product000", 100);
     item2 = new Item("product001", 1075);
   }
@@ -59,21 +59,21 @@ public class BasketTest {
   @Test
   public void canCalculateValueOfBasket__OneItem(){
     basket.add(item);
-    assertEquals(100, basket.value());
+    assertEquals(98, basket.value());
   }
 
   @Test
   public void canCalculateValueOfBasket__TwoItems(){
     basket.add(item);
     basket.add(item);
-    assertEquals(100, basket.value());
+    assertEquals(98, basket.value());
   }
 
   @Test
   public void canFindValueOfBasket__TwoDifferentItems(){
     basket.add(item);
     basket.add(item2);
-    assertEquals(1175, basket.value());
+    assertEquals(1151, basket.value());
   }
 
   @Test
@@ -83,7 +83,7 @@ public class BasketTest {
     basket.add(item);
     basket.add(item2);
 
-    assertEquals(1175, basket.value());
+    assertEquals(1151, basket.value());
   }
 
   @Test
@@ -91,7 +91,7 @@ public class BasketTest {
     basket.add(item);
     basket.add(item);
     
-    assertEquals(100, basket.value());
+    assertEquals(98, basket.value());
   }
 
   @Test
@@ -101,6 +101,6 @@ public class BasketTest {
     basket.add(item2);
     basket.add(item2);
     
-    assertEquals(1935, basket.value());
+    assertEquals(1896, basket.value());
   }
 }
